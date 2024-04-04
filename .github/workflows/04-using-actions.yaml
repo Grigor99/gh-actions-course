@@ -15,3 +15,14 @@ jobs:
           java-version: '21'
       - name: Verify Java version
         run: java -version
+      - name: Maven Clean and Install
+        run: mvn clean install
+
+      - name: Check for JAR file
+        run: |
+          if [ -f target/*.jar ]; then
+            echo "JAR file found!"
+          else
+            echo "JAR file not found."
+            exit 1
+          fi
