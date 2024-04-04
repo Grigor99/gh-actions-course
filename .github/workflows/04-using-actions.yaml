@@ -13,8 +13,5 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
-      - run: |
-          javac DemoKubApplication.java
-          java DemoKubApplication
       - name: Verify Java version
         run: java -version
