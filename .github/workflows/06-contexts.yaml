@@ -1,5 +1,5 @@
 name: 06 - Contexts
-run-name: My Run name - ${{inputs.debug}}
+run-name: My Run name is ${{inputs.debug}}
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
     inputs:
       debug:
         type: boolean
-        default: false
+        description: smth
+        default: true
 
 env:
   MY_WORKFLOW_VAR: 'workflow'
