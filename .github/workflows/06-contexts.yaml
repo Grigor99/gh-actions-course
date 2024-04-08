@@ -11,8 +11,8 @@ on:
         default: false
 
 env:
-  MY_WORKFLOW_WAR: 'workflow'
-  MY_OVERWRITTEN_WAR: 'workflow'
+  MY_WORKFLOW_VAR: 'workflow'
+  MY_OVERWRITTEN_VAR: 'workflow'
 
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_JOB_VAR: 'job'
-      MY_OVERWRITTEN_WAR: 'job'
+      MY_OVERWRITTEN_VAR: 'job'
     steps:
       - name: Display Information
         run: |
@@ -34,9 +34,9 @@ jobs:
       - name: Retrieve Variables
         run: echo "Variable is ${{vars.MY_VAR}}"
       - name: Print vars
-        MY_OVERWRITTEN_WAR: 'step'
+        MY_OVERWRITTEN_VAR: 'step'
         run: |
-          echo "MY_WORKFLOW_WAR ${{var.MY_WORKFLOW_WAR}}"
-          echo "MY_OVERWRITTEN_WAR ${{var.MY_OVERWRITTEN_WAR}}"
+          echo "MY_WORKFLOW_WAR ${{var.MY_WORKFLOW_VAR}}"
+          echo "MY_OVERWRITTEN_WAR ${{var.MY_OVERWRITTEN_VAR}}"
 
 
