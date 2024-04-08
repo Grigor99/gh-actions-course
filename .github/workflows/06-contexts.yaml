@@ -1,15 +1,26 @@
 name: 06 - Contexts
-run-name: My Run name  -  ${{runner.os}}
+run-name: My Run name  -  ${{inputs.debug}}
 
 on:
   push:
   workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        description: show bool value
+        default: false
 
+env:
+  MY_WORKFLOW_WAR: 'workflow'
+  MY_OVERWRITTEN_WAR: 'workflow'
 
 
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+      MY_JOB_VAR: 'job'
+      MY_OVERWRITTEN_WAR: 'job'
     steps:
       - name: Display Information
         run: |
@@ -22,5 +33,10 @@ jobs:
           echo "RUN number is ${{github.run_number}}"
       - name: Retrieve Variables
         run: echo "Variable is ${{vars.MY_VAR}}"
+      - name: Print vars
+        MY_OVERWRITTEN_WAR: 'step'
+        run: |
+          echo "MY_WORKFLOW_WAR ${{var.MY_WORKFLOW_WAR}}"
+          echo "MY_OVERWRITTEN_WAR ${{var.MY_OVERWRITTEN_WAR}}"
 
 
