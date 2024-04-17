@@ -1,47 +1,47 @@
-name: 06 - Contexts
-run-name: My Run name is ${{inputs.debug}}
-
-on:
-  push:
-  workflow_dispatch:
-    inputs:
-      debug:
-        type: boolean
-        description: smth
-        default: true
-
-env:
-  MY_WORKFLOW_VAR: 'workflow'
-  MY_OVERWRITTEN_VAR: 'workflow'
-
-
-jobs:
-  echo-data:
-    runs-on: ubuntu-latest
-    env:
-      MY_JOB_VAR: 'job'
-      MY_OVERWRITTEN_VAR: 'job'
-    steps:
-      - name: Display Information
-        run: |
-          echo "Event name is ${{github.event_name}}"
-          echo "Event REF is ${{github.ref}}"
-          echo "SHA is ${{github.sha}}"
-          echo "Actor is ${{github.actor}}"
-          echo "Workflow is ${{github.workflow}}"
-          echo "RUN id is ${{github.run_id}}"
-          echo "RUN number is ${{github.run_number}}"
-      - name: Retrieve Variables
-        run: echo "Variable is ${{vars.MY_VAR}}"
-      - name: Print vars
-        env:
-         MY_OVERWRITTEN_VAR: 'step'
-        run: |
-          echo "MY_WORKFLOW_WAR ${{env.MY_WORKFLOW_VAR}}"
-          echo "MY_OVERWRITTEN_WAR ${{env.MY_OVERWRITTEN_VAR}}"
-      - name: Print vars 2
-        run: |
-          echo "MY_WORKFLOW_WAR ${{env.MY_WORKFLOW_VAR}}"
-          echo "MY_OVERWRITTEN_WAR ${{env.MY_OVERWRITTEN_VAR}}"
-
-
+#name: 06 - Contexts
+#run-name: My Run name is ${{inputs.debug}}
+#
+#on:
+#  push:
+#  workflow_dispatch:
+#    inputs:
+#      debug:
+#        type: boolean
+#        description: smth
+#        default: true
+#
+#env:
+#  MY_WORKFLOW_VAR: 'workflow'
+#  MY_OVERWRITTEN_VAR: 'workflow'
+#
+#
+#jobs:
+#  echo-data:
+#    runs-on: ubuntu-latest
+#    env:
+#      MY_JOB_VAR: 'job'
+#      MY_OVERWRITTEN_VAR: 'job'
+#    steps:
+#      - name: Display Information
+#        run: |
+#          echo "Event name is ${{github.event_name}}"
+#          echo "Event REF is ${{github.ref}}"
+#          echo "SHA is ${{github.sha}}"
+#          echo "Actor is ${{github.actor}}"
+#          echo "Workflow is ${{github.workflow}}"
+#          echo "RUN id is ${{github.run_id}}"
+#          echo "RUN number is ${{github.run_number}}"
+#      - name: Retrieve Variables
+#        run: echo "Variable is ${{vars.MY_VAR}}"
+#      - name: Print vars
+#        env:
+#         MY_OVERWRITTEN_VAR: 'step'
+#        run: |
+#          echo "MY_WORKFLOW_WAR ${{env.MY_WORKFLOW_VAR}}"
+#          echo "MY_OVERWRITTEN_WAR ${{env.MY_OVERWRITTEN_VAR}}"
+#      - name: Print vars 2
+#        run: |
+#          echo "MY_WORKFLOW_WAR ${{env.MY_WORKFLOW_VAR}}"
+#          echo "MY_OVERWRITTEN_WAR ${{env.MY_OVERWRITTEN_VAR}}"
+#
+#

@@ -1,0 +1,16 @@
+name: Test1
+
+on:
+  workflow_call:
+    secrets:
+      NEXUS_USER:
+        required: true
+
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish Maven packages
+        run: echo "the user is ${{NEXUS_USER}}"

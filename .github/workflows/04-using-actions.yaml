@@ -1,28 +1,28 @@
-name: 04 Using github actions
-
-on: push
-
-
-
-jobs:
-  version-setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '21'
-      - name: Verify Java version
-        run: java -version
-      - name: Maven Clean and Install
-        run: mvn clean install
-
-      - name: Check for JAR file
-        run: |
-          if [ -f target/*.jar ]; then
-            echo "JAR file found!"
-          else
-            echo "JAR file not found."
-            exit 1
-          fi
+#name: 04 Using github actions
+#
+#on: push
+#
+#
+#
+#jobs:
+#  version-setup:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - uses: actions/setup-java@v4
+#        with:
+#          distribution: 'temurin' # See 'Supported distributions' for available options
+#          java-version: '21'
+#      - name: Verify Java version
+#        run: java -version
+#      - name: Maven Clean and Install
+#        run: mvn clean install
+#
+#      - name: Check for JAR file
+#        run: |
+#          if [ -f target/*.jar ]; then
+#            echo "JAR file found!"
+#          else
+#            echo "JAR file not found."
+#            exit 1
+#          fi
