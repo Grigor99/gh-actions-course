@@ -12,9 +12,6 @@ on:
 
 jobs:
   java-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello
-        run: echo "Hello"
+    uses: ./.github/workflows/10-test.yaml
   secrets:
     NEXUS_USER: ${{ secrets.NEXUS_USER }}
